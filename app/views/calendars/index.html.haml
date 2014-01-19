@@ -1,5 +1,13 @@
-- if current_user
-  = link_to "Create Calendar", new_calendar_path
-.calendars
-  - @calendars.each do |calendar|
-    = link_to calendar.name, calendar_path(calendar)
+.calendar_index
+  .calendars
+    - unless @calendars.empty?
+      .calendar_list
+        - @calendars.each do |calendar|
+          .calendar
+            = link_to calendar.name, calendar_path(calendar)
+    - if current_user
+      .button_link
+        = link_to "Create Calendar", new_calendar_path
+  .svg_trees
+    = image_tag "all_trees.jpg"
+    -# render 'svg/all_trees'

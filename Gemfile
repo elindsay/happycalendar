@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'haml'
 gem 'bcrypt-ruby'
+gem 'bourbon'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -1,0 +1,112 @@
+.calendar_index
+  .calendars
+    z-index: 1
+    position: relative
+    width: 330px
+    padding-top: 40px
+    padding-bottom: 50px
+    background-color: rgba(255, 255, 255, 0.8)
+    left: 330px
+    top: 100px
+    .calendar_list
+      padding: 10px 20px 30px
+      font-size: 30px
+      text-align: center
+      .calendar
+        margin-bottom: 20px
+    .button_link
+      text-align: center
+      margin: auto
+      font-size: 26px
+      @include border-top-radius(5px)
+      @include border-bottom-radius(5px)
+      @include linear-gradient(#fff 50%, #eff7ff 75%, #cce6ff 100%)
+      box-shadow: 3px 3px 3px #ccc
+      width: 200px
+      border: 2px solid #ff6699
+      background-color: white
+      padding: 10px
+      &:hover
+        border: 2px solid #ffa3c2
+        a
+          color: #ffa3c2
+  .svg_trees
+    z-index: -1
+    position: absolute
+    top: 40px
+
+.calendar_show
+  .calendar
+    .title
+      font-size: 20px
+      letter-spacing: 1px
+    .month_year
+      font-style: italic
+      .month
+        float: left
+        margin: 0px
+      .year
+        float: left
+        margin: 0px 5px 0px 5px
+      .backward
+        float: left
+        height: 24px
+        @include triangle(12px, gray, left)
+        margin: 2px 5px 0px 0px
+        cursor: pointer
+      .forward
+        float: left
+        height: 24px
+        @include triangle(12px, gray, right)
+        margin: 2px 0px 0px 0px
+        cursor: pointer
+    .day_grid
+      border: 2px solid #ff6699
+      margin: 20px 1px 
+      width: 954px
+      height: 830px
+      .week
+        height: 158px
+        border: 1px solid black
+      .day, .day_name
+        border: 1px solid black
+        width: 134px
+        height: 100%
+        float: left
+        .num
+          width: 18px
+          height: 18px
+          padding-top: 2px
+          padding-right: 2px
+          border-bottom: 2px solid #ff6699
+          border-right: 2px solid #ff6699
+          font-size: 14px
+          text-align: center
+      .week_5
+        .divider
+          display: none
+          border-top: 2px solid black
+          width: 178px
+          @include transform(rotate(-40deg) translateY(29px) translateX(-52px))
+        .split_num
+          display: none
+          float: right
+          margin-top: 111px
+          width: 18px
+          height: 18px
+          padding-bottom: 2px
+          padding-left: 2px
+          border-top: 2px solid #ff6699
+          border-left: 2px solid #ff6699
+          font-size: 14px
+          text-align: center
+        .split
+          .divider, .split_num
+            display: block
+      .day_names
+        height: 30px
+        border: 1px solid black
+        .day_name
+          text-align: center
+          .name
+            margin-top: 5px
