@@ -1,0 +1,5 @@
+- if current_user
+  = link_to "Create Calendar", new_calendar_path
+.calendars
+  - @calendars.each do |calendar|
+    = link_to calendar.name, calendar_path(calendar)

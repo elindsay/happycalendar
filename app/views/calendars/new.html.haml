@@ -1,0 +1,12 @@
+.signup
+  = form_for @calendar do |f|
+    - if @calendar.errors.any?
+      - @calendar.errors.full_messages.each do |msg|
+        = msg
+
+    = f.hidden_field :user_id, value: current_user.id
+    .name
+      = f.label :name
+      = f.text_field :name
+    .submit
+      = f.submit
