@@ -1,14 +1,16 @@
 .calendar_show
+  .svg_trees
+    = image_tag "trees/summer_tree.jpg"
   .calendar
     .title
       = @calendar.name
     .month_year
+      .backward
+      .forward
       .month
         Month
       .year
         Year
-      .backward
-      .forward
     .day_grid
       .day_names
         .day_name.sun

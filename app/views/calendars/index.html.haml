@@ -6,8 +6,9 @@
           .calendar
             = link_to calendar.name, calendar_path(calendar)
     - if current_user
-      .button_link
-        = link_to "Create Calendar", new_calendar_path
+      = link_to new_calendar_path do
+        .button_link
+          Create Calendar
   .svg_trees
-    = image_tag "all_trees.jpg"
+    = image_tag "trees/all_trees.jpg"
     -# render 'svg/all_trees'
