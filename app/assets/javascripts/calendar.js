@@ -97,6 +97,13 @@ $.happy_calendar = {
       }
       $.happy_calendar.set_calendar(month, year);
     });
+    $("audio").each(function(index, audio_elt){
+      audio_elt.volume = 0.2;
+    });
+    $(".day").on("mouseenter", function(){
+      $(".click_"+(Math.floor(Math.random()*3)+1)).trigger("play");
+      console.log("HI");
+    });
   }
 };
 
