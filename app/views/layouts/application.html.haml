@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Happy Calendar
+    = stylesheet_link_tag    "application", media: "all", "data-turbylinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    #header
+      .home
+        = link_to "Home", root_path 
+      .login
+        - if current_user
+          = link_to "Log out", logout_path
+        - else
+          = link_to "Sign up", new_user_path
+          = link_to "Log in", login_path
+    #flash
+      - flash.each do |key, value|
+        %div{:id => "flash#{key}"}
+          = value
+    #content
+      = yield
