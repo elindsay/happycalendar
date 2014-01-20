@@ -12,6 +12,7 @@
     background-color: rgba(255, 255, 255, 0.8)
     left: 330px
     top: 100px
+    box-shadow: 1px 1px 1px #eee
     .calendar_list
       padding: 10px 20px 30px
       font-size: 30px
@@ -20,7 +21,7 @@
         margin-bottom: 20px
     .button_link
       text-align: center
-      margin: auto
+      margin: 0px auto 30px
       font-size: 26px
       box-shadow: 2px 2px 6px #ccc
       width: 200px
@@ -74,6 +75,10 @@
       width: 960px
       .day
         height: 124px
+        &.used:hover
+          background-color: rgba(255, 224, 240, 0.8)
+      .used
+        cursor: pointer
       .day_name
         height: 30px
         color: #666

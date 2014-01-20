@@ -50,10 +50,12 @@ $.happy_calendar = {
   clear_days: function(){
     $(".week .num").html("");
     $(".split").removeClass("split");
+    $(".used").removeClass("used");
   },
   set_day: function(week, day, date){
     if(week <= 5){
       $(".week_" + week + " ." + day + " .num").html(date);
+      $(".week_" + week + " ." + day).addClass("used");
     }else{
       $(".week_5 ." + day).addClass("split");
       $(".week_5 ." + day + " .split_num").html(date);
@@ -98,11 +100,20 @@ $.happy_calendar = {
       $.happy_calendar.set_calendar(month, year);
     });
     $("audio").each(function(index, audio_elt){
-      audio_elt.volume = 0.2;
+      audio_elt.volume = 0.3;
     });
     $(".day").on("mouseenter", function(){
-      $(".click_"+(Math.floor(Math.random()*3)+1)).trigger("play");
-      console.log("HI");
+      if ($(this).hasClass("used")){
+        $(".click_"+(Math.floor(Math.random()*3)+1)).trigger("play");
+      }
+    });
+    $(".day").on("click", function(){
+      var month = $(".month_year .month").html();
+      var year = $(".month_year .year").html();
+      var day = $(this).find(".num").html();
+      if ($(this).hasClass("used")){
+        window.location = "/days/new?month="+month+"&day="+day+"&year="+year;
+      }
     });
   }
 };
