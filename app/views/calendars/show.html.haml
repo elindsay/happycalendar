@@ -6,7 +6,14 @@
   %audio.click_3
     %source{src: asset_path("sounds/clack_3.wav"), controls: "controls"}
   .svg_trees
-    = image_tag "trees/summer_tree.jpg"
+    .winter_time
+      = image_tag "trees/winter_tree.jpg"
+    .spring_time
+      = image_tag "trees/spring_tree.jpg"
+    .summer_time
+      = image_tag "trees/summer_tree.jpg"
+    .autumn_time
+      = image_tag "trees/autumn_tree.jpg"
   .calendar
     .title
       = @calendar.name

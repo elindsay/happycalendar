@@ -40,10 +40,6 @@
       width: 960px
       .day
         height: 124px
-        &.used:hover
-          background-color: rgba(255, 224, 240, 0.8)
-        &.used.has_notes:hover
-          background-color: rgba(255, 224, 240, 0.92)
       .used
         cursor: pointer
       .day_name
@@ -110,3 +106,40 @@
           text-align: center
           .name
             margin-top: 5px
+
+.winter
+  .calendar_show
+    .calendar
+      .day_grid
+        .day
+          &.used:hover
+            background-color: rgba(224, 240, 255, 0.8)
+          &.used.has_notes:hover
+            background-color: rgba(224, 240, 255, 0.92)
+.spring
+  .calendar_show
+    .calendar
+      .day_grid
+        .day
+          &.used:hover
+            background-color: rgba(224, 255, 194, 0.8)
+          &.used.has_notes:hover
+            background-color: rgba(224, 255, 194, 0.92)
+.summer
+  .calendar_show
+    .calendar
+      .day_grid
+        .day
+          &.used:hover
+            background-color: rgba(255, 224, 240, 0.8)
+          &.used.has_notes:hover
+            background-color: rgba(255, 224, 240, 0.92)
+.autumn
+  .calendar_show
+    .calendar
+      .day_grid
+        .day
+          &.used:hover
+            background-color: rgba(255, 219, 184, 0.8)
+          &.used.has_notes:hover
+            background-color: rgba(255, 219, 184, 0.92)

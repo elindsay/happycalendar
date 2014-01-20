@@ -65,11 +65,27 @@ $.happy_calendar = {
       $(".week_5 ." + day + " .split_num").html(date);
     }
   },
+  set_background: function(month){
+    $("#universe").removeClass("summer")
+    $("#universe").removeClass("winter")
+    $("#universe").removeClass("spring")
+    $("#universe").removeClass("autumn")
+    if(month === 11 || month <= 1){
+      $("#universe").addClass("winter");
+    }else if(month <= 4){
+      $("#universe").addClass("spring");
+    }else if(month <= 7){
+      $("#universe").addClass("summer");
+    }else if(month <=10){
+      $("#universe").addClass("autumn");
+    }
+  },
   set_calendar: function(month, year){
     var first_day = new Date(year, month, 1);
     var offset = first_day.getDay();
     var last_day = new Date(year, month + 1, 0);
 
+    $.happy_calendar.set_background(month)
     $(".month").html($.happy_calendar.month_num_to_word(month));
     $(".year").html(year);
 
