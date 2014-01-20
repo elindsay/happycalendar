@@ -1,4 +1,4 @@
-.day_edit{data: {id: @day.id}}
+.day_edit{data: {id: @day.id, month: @day.month}}
   .date
     = link_to calendar_path(@day.calendar) do
       .backward_arrow
