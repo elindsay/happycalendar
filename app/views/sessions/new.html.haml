@@ -1,13 +1,18 @@
 .login
-  = form_tag sessions_path do
+  .welcome
+    .options
+      .inputs
+        = form_tag sessions_path do
 
-    .email
-      = label_tag :email
-      = text_field_tag :email
+          .email.form_elts
+            = label_tag :email
+            = text_field_tag :email
 
-    .password
-      = label_tag :password
-      = password_field_tag :password
+          .password.form_elts
+            = label_tag :password
+            = password_field_tag :password
 
-    .submit
-      = submit_tag "Log In"
+          .submit.login
+            = submit_tag "Log In"
+    .svg_trees
+      = image_tag "trees/all_trees.jpg"

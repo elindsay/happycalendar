@@ -24,3 +24,88 @@
 
 #content
   clear: left
+
+.welcome
+  .svg_trees
+    z-index: -1
+    position: absolute
+    top: 40px
+  .options
+    z-index: 1
+    position: relative
+    width: 330px
+    padding-top: 40px
+    padding-bottom: 50px
+    background-color: rgba(255, 255, 255, 0.8)
+    left: 330px
+    top: 100px
+    box-shadow: 1px 1px 1px #eee
+    .calendar_list
+      padding: 10px 20px 30px
+      font-size: 30px
+      text-align: center
+      .calendar
+        margin-bottom: 20px
+    .button_link
+      text-align: center
+      margin: 0px auto 30px
+      font-size: 26px
+      box-shadow: 2px 2px 6px #ccc
+      width: 200px
+      background-color: rgba(255, 255, 255, 0.8)
+      padding: 10px
+      &:hover
+        a
+          color: #ffa3c2
+      &:active
+        box-shadow: inset 2px 2px 6px #ccc
+    .inputs
+      margin: -10px 20px 20px
+      div.form_elts
+        margin: 10px 0px
+      label
+        float: left
+        width: 100px
+        color: #ff6699
+        font-weight: 100
+        font-family: Helvetica, sans-serif
+        font-size: 20px
+        letter-spacing: 1px
+        margin-top: 5px
+      input[type='text'], input[type='password']
+        width: 180px
+        border: none
+        box-shadow: inset 2px 2px 2px #ccc
+        padding: 5px
+        font-size: 16px
+        color: #666
+        font-weight: 100
+      .submit
+        float: left
+        width: 100%
+        margin-top: 20px
+        input[type='submit']
+          border: none
+          background-color: white
+          box-shadow: 2px 2px 6px #ccc
+          color: #ff6699
+          font-size: 20px
+          letter-spacing: 1px
+          font-weight: 100
+          font-family: Helvetica, sans-serif
+          padding: 10px 30px
+          &:active
+            outline: none
+            box-shadow: inset 2px 2px 6px #ccc
+
+.users_new 
+  .inputs
+    height: 210px
+  .submit.new_user
+    margin-left: 50px
+
+.login 
+  .inputs
+    height: 120px
+  .submit.login
+    margin-left: 80px

@@ -1,14 +1,15 @@
 .calendar_index
-  .calendars
-    - unless @calendars.empty?
-      .calendar_list
-        - @calendars.each do |calendar|
-          .calendar
-            = link_to calendar.name, calendar_path(calendar)
-    - if current_user
-      = link_to new_calendar_path do
-        .button_link
-          Create Calendar
-  .svg_trees
-    = image_tag "trees/all_trees.jpg"
-    -# render 'svg/all_trees'
+  .welcome
+    .options
+      - unless @calendars.empty?
+        .calendar_list
+          - @calendars.each do |calendar|
+            .calendar
+              = link_to calendar.name, calendar_path(calendar)
+      - if current_user
+        = link_to new_calendar_path do
+          .button_link
+            Create Calendar
+    .svg_trees
+      = image_tag "trees/all_trees.jpg"
+      -# render 'svg/all_trees'

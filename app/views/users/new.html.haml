@@ -1,20 +1,25 @@
-.signup
-  = form_for @user do |f|
-    - if @user.errors.any?
-      - @user.errors.full_messages.each do |msg|
-        = msg
+.users_new
+  .welcome
+    .options
+      .inputs
+        = form_for @user do |f|
+          - if @user.errors.any?
+            - @user.errors.full_messages.each do |msg|
+              = msg
 
-    .name
-      = f.label :name
-      = f.text_field :name
-    .email
-      = f.label :email
-      = f.text_field :email
-    .password
-      = f.label :password
-      = f.password_field :password
-    .password_confirmation
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation
-    .submit
-      = f.submit
+          .name.form_elts
+            = f.label :name
+            = f.text_field :name
+          .email.form_elts
+            = f.label :email
+            = f.text_field :email
+          .password.form_elts
+            = f.label :password
+            = f.password_field :password
+          .password_confirmation.form_elts
+            = f.label :password_confirmation, "Confirm"
+            = f.password_field :password_confirmation
+          .submit.new_user
+            = f.submit
+    .svg_trees
+      = image_tag "trees/all_trees.jpg"
