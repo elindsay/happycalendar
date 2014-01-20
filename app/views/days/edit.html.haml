@@ -1,8 +1,10 @@
 .day_edit{data: {id: @day.id}}
   .date
-    = @day.month_text
-    = @day.day
-    = @day.year
+    = link_to calendar_path(@day.calendar) do
+      .backward_arrow
+      = @day.month_text
+      = @day.day
+      = @day.year
   .canvas
     - @day.text_notes.each do |tn|
       %textarea.text{class: "created_#{tn.html_identifier}", style: "left: #{tn.x_pos}px; top: #{tn.y_pos}px; width: #{950-tn.x_pos}px;"}

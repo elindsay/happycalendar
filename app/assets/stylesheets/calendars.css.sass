@@ -2,11 +2,16 @@
   .svg_trees
     z-index: -1
     position: absolute
-    top: 90px
+    top: 80px
   .calendar
+    .cal_info
+      float: left
+      margin-top: -20px
+      margin-bottom: 20px
     .title
       float: left
       font-size: 24px
+      font-weight: 100
       color: #666
       letter-spacing: 1px
     .month_year
@@ -14,29 +19,18 @@
       font-style: italic
       font-size: 18px
       color: #666
-      margin: 3px 10px
+      margin-left: 10px
+      margin-top: 4px
       .month
         float: left
         margin: 0px
       .year
         float: left
         margin: 0px 5px 0px 5px
-      .backward
-        float: left
-        height: 30px
-        @include triangle(15px, gray, left)
-        margin: 4px 5px 0px 0px
-        cursor: pointer
-      .forward
-        float: left
-        height: 30px
-        @include triangle(15px, gray, right)
-        margin: 4px 0px 0px 0px
-        cursor: pointer
     .day_grid
       float: left
       clear: left
-      margin: 40px 8px 0px
+      margin: 55px 8px 0px
       width: 960px
       .day
         height: 124px
@@ -107,6 +101,18 @@
           .name
             margin-top: 5px
 
+.backward_arrow
+  float: left
+  height: 30px
+  @include triangle(15px, gray, left)
+  margin: 4px 5px 0px 0px
+  cursor: pointer
+.forward_arrow
+  float: left
+  height: 30px
+  @include triangle(15px, gray, right)
+  margin: 4px 0px 0px 0px
+  cursor: pointer
 .winter
   .calendar_show
     .calendar

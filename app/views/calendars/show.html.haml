@@ -15,15 +15,16 @@
     .autumn_time
       = image_tag "trees/autumn_tree.jpg"
   .calendar
-    .title
-      = @calendar.name
-    .month_year
-      .backward
-      .forward
-      .month
-        Month
-      .year
-        Year
+    .cal_info
+      .title
+        = @calendar.name
+      .month_year
+        .backward.backward_arrow
+        .forward.forward_arrow
+        .month
+          Month
+        .year
+          Year
     .day_grid
       .day_names
         .day_name.sun
