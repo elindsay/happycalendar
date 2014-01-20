@@ -20,8 +20,5 @@
         - flash.each do |key, value|
           %div{:id => "flash#{key}"}
             = value
-
-        %div{:id => "flash_notice"}
-          Signed Up!
       #content
         = yield
