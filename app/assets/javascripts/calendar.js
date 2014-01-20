@@ -101,8 +101,9 @@ $.happy_calendar = {
     var month = current_date.getMonth();
     var year = current_date.getFullYear();
     var calendar_id = $(".calendar_show").data('id');
-    $.happy_calendar.set_calendar(month, year);
-    console.log(month);
+    if($(".calendar_show").length > 0){
+      $.happy_calendar.set_calendar(month, year);
+    }
 
     $(".month_year .backward").on("click", function(){
       month = month - 1;
