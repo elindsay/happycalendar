@@ -77,6 +77,8 @@
         height: 124px
         &.used:hover
           background-color: rgba(255, 224, 240, 0.8)
+        &.used.has_notes:hover
+          background-color: rgba(255, 224, 240, 0.95)
       .used
         cursor: pointer
       .day_name
@@ -88,9 +90,13 @@
         float: left
         background-color: rgba(255, 255, 255, 0.8)
         box-shadow: 1px 1px 1px #eee
+        overflow: hidden
+        &.has_notes
+          background-color: rgba(255, 255, 255, 0.95)
         .num
           width: 18px
           height: 18px
+          float: left
           padding-top: 2px
           padding-right: 2px
           background-color: #fff
@@ -98,6 +104,21 @@
           font-size: 14px
           text-align: center
           box-shadow: 1px 1px 1px #ccc
+          margin-right: 5px
+        .notelets
+          font-size: 10px
+          letter-spacing: 1px
+          float: left
+          font-style: italic
+          font-weight: 100
+          margin: 2px
+          &.first
+            width: 90px
+          &.elip
+            width: 100%
+            font-size: 16px
+            text-align: center
+            margin-left: 0px
       .week_5
         .divider
           display: none

@@ -5,6 +5,7 @@ class CreateTextNotes < ActiveRecord::Migration
       t.text :note
       t.integer :x_pos
       t.integer :y_pos
+      t.string :html_identifier
       t.float :rot
     end
   end

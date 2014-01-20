@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140119223820) do
     t.text    "note"
     t.integer "x_pos"
     t.integer "y_pos"
+    t.string  "html_identifier"
     t.float   "rot"
   end
 

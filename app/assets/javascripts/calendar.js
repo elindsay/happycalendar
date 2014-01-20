@@ -51,11 +51,15 @@ $.happy_calendar = {
     $(".week .num").html("");
     $(".split").removeClass("split");
     $(".used").removeClass("used");
+    $("[class*='day_num_']").removeClass(function( index, css ) {
+      return (css.match (/\bday_num_\S+/g) || []).join(' ');
+    });
   },
   set_day: function(week, day, date){
     if(week <= 5){
       $(".week_" + week + " ." + day + " .num").html(date);
       $(".week_" + week + " ." + day).addClass("used");
+      $(".week_" + week + " ." + day).addClass("day_num_"+date);
     }else{
       $(".week_5 ." + day).addClass("split");
       $(".week_5 ." + day + " .split_num").html(date);
@@ -80,6 +84,7 @@ $.happy_calendar = {
     var current_date = new Date();
     var month = current_date.getMonth();
     var year = current_date.getFullYear();
+    var calendar_id = $(".calendar_show").data('id');
     $.happy_calendar.set_calendar(month, year);
     console.log(month);
 
@@ -99,6 +104,29 @@ $.happy_calendar = {
       }
       $.happy_calendar.set_calendar(month, year);
     });
+
+    $.ajax({
+      url: "/days/",
+      data: {calendar_id: calendar_id, month: month},
+      success: function(data){
+        console.log(data);
+        for(var j in data['days']){
+          $(".day_num_"+data['days'][j]['day']).addClass("has_notes")
+           for(var k in data['days'][j]['text_notes']){
+            if(k == 0){
+              $(".day_num_"+data['days'][j]['day']).append("<div class='notelets first'>"+data['days'][j]['text_notes'][k]['note']+"</div>")
+            }else if (k <=3){
+              $(".day_num_"+data['days'][j]['day']).append("<div class='notelets'>"+data['days'][j]['text_notes'][k]['note']+"</div>")
+            }
+           }
+          if( data['days'][j]['text_notes'].length > 4){
+            $(".day_num_"+data['days'][j]['day']).append("<div class='notelets elip'>...</div>")
+          }
+        };
+
+      }
+    });
+
     $("audio").each(function(index, audio_elt){
       audio_elt.volume = 0.3;
     });
@@ -112,7 +140,7 @@ $.happy_calendar = {
       var year = $(".month_year .year").html();
       var day = $(this).find(".num").html();
       if ($(this).hasClass("used")){
-        window.location = "/days/new?month="+month+"&day="+day+"&year="+year;
+        window.location = "/calendar/"+calendar_id+"/day/"+month+"/"+day+"/"+year;
       }
     });
   }
