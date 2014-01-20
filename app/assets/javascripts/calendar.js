@@ -54,6 +54,8 @@ $.happy_calendar = {
     $("[class*='day_num_']").removeClass(function( index, css ) {
       return (css.match (/\bday_num_\S+/g) || []).join(' ');
     });
+    $(".has_notes").find(".notelets").remove();
+    $(".has_notes").removeClass("has_notes");
   },
   set_day: function(week, day, date){
     if(week <= 5){
@@ -96,35 +98,10 @@ $.happy_calendar = {
       $.happy_calendar.set_day(week, day, i + 1);
     }
   },
-  ready: function(){
-    var current_date = new Date();
-    var month = current_date.getMonth();
-    var year = current_date.getFullYear();
-    var calendar_id = $(".calendar_show").data('id');
-    if($(".calendar_show").length > 0){
-      $.happy_calendar.set_calendar(month, year);
-    }
-
-    $(".month_year .backward").on("click", function(){
-      month = month - 1;
-      if (month < 0){
-        month = 11;
-        year = year - 1;
-      }
-      $.happy_calendar.set_calendar(month, year);
-    });
-    $(".month_year .forward").on("click", function(){
-      month = month + 1;
-      if (month > 11){
-        month = 0;
-        year = year + 1;
-      }
-      $.happy_calendar.set_calendar(month, year);
-    });
-
+  set_day_data: function(calendar_id, month, year){
     $.ajax({
       url: "/days/",
-      data: {calendar_id: calendar_id, month: month},
+      data: {calendar_id: calendar_id, month: month, year: year},
       success: function(data){
         console.log(data);
         for(var j in data['days']){
@@ -142,6 +119,36 @@ $.happy_calendar = {
         };
 
       }
+    });
+
+  },
+  ready: function(){
+    var current_date = new Date();
+    var month = current_date.getMonth();
+    var year = current_date.getFullYear();
+    var calendar_id = $(".calendar_show").data('id');
+    if($(".calendar_show").length > 0){
+      $.happy_calendar.set_calendar(month, year);
+      $.happy_calendar.set_day_data(calendar_id, month, year);
+    }
+
+    $(".month_year .backward").on("click", function(){
+      month = month - 1;
+      if (month < 0){
+        month = 11;
+        year = year - 1;
+      }
+      $.happy_calendar.set_calendar(month, year);
+      $.happy_calendar.set_day_data(calendar_id, month, year);
+    });
+    $(".month_year .forward").on("click", function(){
+      month = month + 1;
+      if (month > 11){
+        month = 0;
+        year = year + 1;
+      }
+      $.happy_calendar.set_calendar(month, year);
+      $.happy_calendar.set_day_data(calendar_id, month, year);
     });
 
     $("audio").each(function(index, audio_elt){
