@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    logger.debug("$"*50)
+    logger.debug(params)
+    @new_user = params[:new_user]
   end
 
   def create
