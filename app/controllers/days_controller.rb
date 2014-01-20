@@ -1,7 +1,7 @@
 class DaysController < ApplicationController
 
   def index
-    @days = Day.find(:all, conditions: { calendar_id: params[:calendar_id], month: params[:month] })
+    @days = Day.find(:all, conditions: { calendar_id: params[:calendar_id], month: params[:month], year: params[:year] })
     respond_to do |format|
       format.json { render json: @days}
     end
