@@ -26,8 +26,8 @@ class CalendarsController < ApplicationController
 
   def show
     @calendar = Calendar.find(params[:id])
-    Day.all(include: "text_notes", conditions: ["days.calendar_id = ? AND text_notes.id IS NULL", @calendar.id]).each do |d|
-      if d.text_notes.empty?
+    Day.all(include: "calendar_notes", conditions: ["days.calendar_id = ? AND calendar_notes.id IS NULL", @calendar.id]).each do |d|
+      if d.calendar_notes.empty?
         d.delete
       end
     end

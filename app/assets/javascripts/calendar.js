@@ -106,14 +106,14 @@ $.happy_calendar = {
         console.log(data);
         for(var j in data['days']){
           $(".day_num_"+data['days'][j]['day']).addClass("has_notes")
-           for(var k in data['days'][j]['text_notes']){
+           for(var k in data['days'][j]['calendar_notes']){
             if(k == 0){
-              $(".day_num_"+data['days'][j]['day']).append("<div class='notelets first'>"+data['days'][j]['text_notes'][k]['note']+"</div>")
+              $(".day_num_"+data['days'][j]['day']).append("<div class='notelets first'>"+data['days'][j]['calendar_notes'][k]['note']+"</div>")
             }else if (k <=3){
-              $(".day_num_"+data['days'][j]['day']).append("<div class='notelets'>"+data['days'][j]['text_notes'][k]['note']+"</div>")
+              $(".day_num_"+data['days'][j]['day']).append("<div class='notelets'>"+data['days'][j]['calendar_notes'][k]['note']+"</div>")
             }
            }
-          if( data['days'][j]['text_notes'].length > 4){
+          if( data['days'][j]['calendar_notes'].length > 4){
             $(".day_num_"+data['days'][j]['day']).append("<div class='notelets elip'>...</div>")
           }
         };

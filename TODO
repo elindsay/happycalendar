@@ -1,2 +1,6 @@
 Highlight current day
 Get day themes working for single day page
+Allow changes after saving and coming back to page (listener setup on page load)
+Allow deletes
+
+Note Taking

@@ -1,6 +1,6 @@
 class Day < ActiveRecord::Base
   belongs_to :calendar
-  has_many :text_notes
+  has_many :calendar_notes
 
   def Day.month_number(month_text)
     case month_text
