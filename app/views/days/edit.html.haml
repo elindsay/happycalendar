@@ -6,6 +6,6 @@
       = @day.day
       = @day.year
   .canvas
-    - @day.calendar_notes_by_location.each do |tn|
+    - @day.calendar_notes.each do |tn|
       %textarea.text{class: "created_#{tn.html_identifier}", style: "left: #{tn.x_pos}px; top: #{tn.y_pos}px; width: #{950-tn.x_pos}px;"}
         = tn.note
