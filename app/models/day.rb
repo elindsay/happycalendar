@@ -2,6 +2,10 @@ class Day < ActiveRecord::Base
   belongs_to :calendar
   has_many :calendar_notes
 
+  def Day.calendar_notes_by_location
+    calendar_notes.order(y_pos: :desc)
+  end
+
   def Day.month_number(month_text)
     case month_text
     when "January"
