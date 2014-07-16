@@ -1,4 +1,4 @@
-#id Dr
+#id
 .day_edit{data: {id: @day.id, month: @day.month}}
   .date
     = link_to calendar_path(@day.calendar) do
@@ -13,3 +13,6 @@
           = tn.note      
         %textarea.text{class: "created_#{tn.html_identifier} hidden"}
           = tn.note
+  .stickers_wrapper
+    - @stickers.each do |s|
+      %img{:src => "#{s.image}"}

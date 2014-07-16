@@ -13,6 +13,7 @@ class DaysController < ApplicationController
     year = params[:year]
     day = params[:day]
     @day = Day.find_or_create_by(calendar_id: calendar_id, month: month_number, year: year, day: day)
+    @stickers = Sticker.all
   end
 
   def update
