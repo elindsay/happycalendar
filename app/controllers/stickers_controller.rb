@@ -12,6 +12,10 @@ class StickersController < ApplicationController
     end
   end
 
+  def show
+    @sticker = Sticker.find(params[:id])
+  end
+
   private
 
   def sticker_params
