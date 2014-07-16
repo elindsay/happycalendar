@@ -6,6 +6,7 @@ Happycalendar::Application.routes.draw do
   get 'logout' => 'sessions#destroy', as: 'logout'
 
   get 'calendar/:calendar_id/day/:month/:day/:year' => 'days#edit'
+  get 'calendars/info' => 'calendars#info'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

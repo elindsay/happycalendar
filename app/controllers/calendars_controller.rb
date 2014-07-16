@@ -1,4 +1,7 @@
 class CalendarsController < ApplicationController
+  def info
+  end
+
   def index
     if current_user
       @calendars = current_user.calendars
