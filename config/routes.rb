@@ -12,4 +12,5 @@ Happycalendar::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :calendars
   resources :days, only: [:index, :update]
+  resources :stickers
 end
