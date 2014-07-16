@@ -60,6 +60,7 @@ $.happy_day = {
       $(this).addClass('hidden');
       $(this).siblings().removeClass('hidden');
     });
+    
     $('.draggable_sticker').draggable();
   },
 }
