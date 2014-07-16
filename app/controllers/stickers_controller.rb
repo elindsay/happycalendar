@@ -15,6 +15,6 @@ class StickersController < ApplicationController
   private
 
   def sticker_params
-    params.require(:sticker).permit(:name)
+    params.require(:sticker).permit(:name, :image)
   end
 end
