@@ -1,0 +1,7 @@
+= form_for @sticker, html: { multipart: true } do |s|
+  .name
+  = s.label :name
+  = s.text_field :name
+
+  .create
+  = s.submit :create
