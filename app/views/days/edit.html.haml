@@ -15,4 +15,5 @@
           = tn.note
   .stickers_wrapper
     - @stickers.each do |s|
-      %img{:src => "#{s.image}"}
+      .draggable_sticker
+        %img{:src => "#{s.image}"}
