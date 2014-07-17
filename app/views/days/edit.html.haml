@@ -14,6 +14,11 @@
         %textarea.text{class: "created_#{tn.html_identifier} hidden"}
           = tn.note
   .stickers_wrapper
+    %h3
+      Stickers:
+    %a{:href=> new_sticker_path}
+      %p
+        Add new sticker
     - @stickers.each do |s|
       .draggable_sticker
         %img{:src => "#{s.image}"}
