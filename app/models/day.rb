@@ -1,6 +1,7 @@
 class Day < ActiveRecord::Base
   belongs_to :calendar
-  has_many :calendar_notes, order: "y_pos ASC"
+  belongs_to :user
+  has_many :calendar_notes, -> { order(y_pos: :desc) }
 
   def Day.month_number(month_text)
     case month_text

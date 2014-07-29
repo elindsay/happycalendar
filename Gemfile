@@ -31,10 +31,17 @@ gem 'haml'
 gem 'bcrypt-ruby'
 gem 'bourbon'
 gem 'active_model_serializers'
+gem 'i18n', '>= 0.6.9'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta2'
+  gem 'factory_girl', '~> 4.0'
+  gem 'shoulda-matchers'
 end
 
 gem 'rails_12factor', group: :production
