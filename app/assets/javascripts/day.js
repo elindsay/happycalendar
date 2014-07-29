@@ -51,14 +51,14 @@ $.happy_day = {
     $('.draggable_text').on('click', function(){
       console.log("clicked!");
       console.log(this);
-      $(this).children('textarea.text').removeClass('hidden').focus();
+      $(this).children('.edit_text').removeClass('hidden').focus();
       $(this).children('div.text').addClass('hidden');
     });
     $('textarea.text').on('focusout', function() {
       console.log('focused out');
-      $(this).parent().focus();
-      $(this).addClass('hidden');
-      $(this).siblings().removeClass('hidden');
+      $(this).parent().parent().focus();
+      $(this).parent().addClass('hidden');
+      $(this).parent().siblings('.text').removeClass('hidden');
     });
     $('.draggable_sticker').draggable({
       helper: 'clone', 

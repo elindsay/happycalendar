@@ -18,8 +18,10 @@
       .draggable_text{data: {identifier: tn.html_identifier}, style: "left: #{tn.x_pos}px; top: #{tn.y_pos}px; width: #{950-tn.x_pos}px;" }
         .text{class: "created_#{tn.html_identifier}"}
           = tn.note      
-        %textarea.text{class: "created_#{tn.html_identifier} hidden"}
-          = tn.note
+        .edit_text.hidden
+          = image_tag "info_icon.png"
+          %textarea.text{class: "created_#{tn.html_identifier}"}
+            = tn.note
     - @day_stickers.each do |ds|
       .draggable_day_sticker{data: {id: ds.id} , style: "left: #{ds.x_pos}px; top: #{ds.y_pos}px; position: absolute;"}       
         = image_tag ds.sticker.try(:image)
