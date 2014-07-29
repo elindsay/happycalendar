@@ -23,8 +23,11 @@ class DaysController < ApplicationController
   end
 
   def update
-    @calendar_note = CalendarNote.find_or_create_by(html_identifier: params[:calendar_note_params][:html_identifier])
-    @calendar_note.update_attributes(params[:calendar_note_params].permit(:x_pos, :y_pos))
+    @day = Day.find(params[:id])
+    @calendar_note = @day.calendar_notes.find_or_create_by(html_identifier: params[:calendar_note_params][:html_identifier])
+    logger.debug("%"*30)
+    logger.debug(@calendar_note)
+    @calendar_note.update_attributes(params[:calendar_note_params].permit(:x_pos, :y_pos, :note, :html_identifier))
     respond_to do |format|
       format.json { render json: { identifier: @calendar_note.html_identifier } }
     end
