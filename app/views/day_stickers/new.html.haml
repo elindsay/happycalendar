@@ -1,0 +1,23 @@
+= form_for @daysticker do |ds|
+  - @daysticker.errors.full_messages.each do |msg|
+    %p 
+      = msg
+
+  .day_id
+    = ds.label :day_id
+    = ds.collection_select(:day_id, Day.all, :id, :id)
+
+  .sticker_id
+    = ds.label :sticker_id
+    = ds.collection_select(:sticker_id, Sticker.all, :id, :name)
+
+  .y_pos
+    = ds.label :y_pos
+    = ds.text_field :y_pos
+
+  .x_pos
+    = ds.label :x_pos
+    = ds.text_field :x_pos
+
+  .create
+    = ds.submit :create

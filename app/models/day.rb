@@ -1,6 +1,7 @@
 class Day < ActiveRecord::Base
   belongs_to :calendar
   has_many :calendar_notes, order: "y_pos ASC"
+  has_many :day_stickers
 
   def Day.month_number(month_text)
     case month_text

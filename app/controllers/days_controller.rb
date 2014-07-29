@@ -7,6 +7,11 @@ class DaysController < ApplicationController
     end
   end
 
+  def show
+    @day = Day.find(params[:id])
+    redirect_to "/calendar/#{@day.calendar_id}/day/#{@day.month_text}/#{@day.day}/#{@day.year}"
+  end
+  
   def edit
     calendar_id = params[:calendar_id]
     month_number = Day.month_number(params[:month])
@@ -14,6 +19,7 @@ class DaysController < ApplicationController
     day = params[:day]
     @day = Day.find_or_create_by(calendar_id: calendar_id, month: month_number, year: year, day: day)
     @stickers = Sticker.all
+    @day_stickers = @day.day_stickers.to_a
   end
 
   def update
